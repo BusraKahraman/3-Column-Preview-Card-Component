@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap');
+
+// colors
+$bright-orange: hsl(31, 77%, 52%);
+$dark-cyan: hsl(184, 100%, 22%);
+$very-dark-cyan: hsl(179, 100%, 13%);
+$transparent-white: hsla(0, 0%, 100%, 0.75); //paragraphs
+$very-light-gray: hsl(0, 0%, 95%); //background, headings, buttons
+
+// fonts
+$big-shoulders: 'Big Shoulders Display', cursive;
+$lexend: 'Lexend Deca', sans-serif;
+
+// mixins
+
+@mixin responsive($min-width, $max-width) {
+  @media screen and (min-width: #{$min-width}px) and (max-width: #{$max-width}px) {
+    @content;
+  }
+}
+
+// global styles
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 15px;
+}
+
+.container {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 7em auto;
+  max-width: 950px;
+
+  h1 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  p {
+    line-height: 25px;
+  }
+}
+
+.button {
+  background-color: $very-light-gray;
+  font-family: $lexend;
+  border-radius: 25px;
+  border: none;
+  align-items: center;
+  justify-items: center;
+  height: 4em;
+  width: 12em;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.button:hover {
+  background-color: transparent;
+  border: 2px solid $very-light-gray;
+  color: $very-light-gray;
+  cursor: pointer;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 10px;
+  width: auto;
+
+  a {
+    color: hsl(228, 45%, 44%);
+  }
+}
+
+// colors and typography
+
+.bg-orange {
+  background-color: $bright-orange;
+}
+
+.bg-cyan {
+  background-color: $dark-cyan;
+}
+
+.bg-dark-cyan {
+  background-color: $very-dark-cyan;
+}
+
+.txt-white {
+  color: $transparent-white;
+}
+
+.txt-gray {
+  color: $very-light-gray;
+}
+
+.txt-orange {
+  color: $bright-orange;
+}
+
+.txt-cyan {
+  color: $dark-cyan;
+}
+
+.txt-dark-cyan {
+  color: $very-dark-cyan;
+}
+
+.big-shoulders {
+  font-family: $big-shoulders;
+}
+
+.lexend {
+  font-family: $lexend;
+}
+
+// card styles
+
+.cars {
+  height: 400px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.car1 {
+  border-radius: 10px 0 0 10px;
+}
+
+.car3 {
+  border-radius: 0 10px 10px 0;
+}
+
+// responsive styles
+
+@include responsive(375, 768) {
+  .container {
+    grid-template-columns: 1fr;
+    width: 100%;
+    margin: 8em 10em;
+  }
+
+  .cars {
+    height: 300px;
+    width: 40%;
+  }
+
+  .car1 {
+    border-radius: 10px 10px 0 0;
+  }
+
+  .car3 {
+    border-radius: 0 0 10px 10px;
+  }
+}
